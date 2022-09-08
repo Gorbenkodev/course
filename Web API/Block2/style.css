@@ -1,0 +1,9 @@
+.characters-counter {
+  visibility: hidden;
+}
+.like-button {
+  color: black;
+}
+.like-button-active {
+  color: red;
+}
