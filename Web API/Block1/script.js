@@ -86,10 +86,9 @@ function renderPopularMovies() {
       const { poster_path, original_title } = movie
       const moviesElement = document.createElement('li');
       moviesElement.classList.add('movie');
-      moviesElement.innerHTML = `<a href="https://www.instagram.com/frau_weigandt/">
+      moviesElement.innerHTML = `
       <img src="${imagePath + poster_path}" alt="#"/>
       <h3>${original_title}</h3>
-      </a>
    `;
       main.appendChild(moviesElement)
    });
