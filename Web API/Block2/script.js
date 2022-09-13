@@ -27,20 +27,7 @@ const countElement = counter.querySelector('.count')
 
 const USER_ID = 1;
 
-const tweets = [
-  {
-    userId: USER_ID,
-    username: '@terry',
-    text: 'Hey, apiko!',
-    isLiked: true,
-  },
-  {
-    userId: 2,
-    username: '@apko_hr',
-    text: 'Yo!',
-    isLiked: false,
-  }
-]
+
 
 textarea.addEventListener('input', evt => {
   const count = evt.target.value.length;
@@ -93,12 +80,17 @@ form.addEventListener('submit', (evt) => {
 })
 
 function addTweet({ text, username, isLiked }) {
-  const tweet = createTweet({ userId:USER_ID, text, username, isLiked});
+  const tweetObj = { userId:USER_ID, text, username, isLiked};
+
+  const tweet = createTweet(tweetObj);
+
   list.prepend(tweet);
 
 
   textarea.value = '';
   button.setAttribute('disabled', true);
+
+  saveTweet(tweetObj);
 }
 function createTweet({userId, text, username, isLiked}) {
 const tweet = document.createElement('li');
@@ -124,7 +116,42 @@ tweet.innerHTML = `
 return tweet;
 }
 
+function getTweets() {
+  const tweets = [
+    {
+      userId: USER_ID,
+      username: '@terry',
+      text: 'Hey, apiko!',
+      isLiked: true,
+    },
+    {
+      userId: 2,
+      username: '@apko_hr',
+      text: 'Yo!',
+      isLiked: false,
+    }
+  ];
+
+  const localTweets = window.localStorage.getItem('tweets');
+
+  if (localTweets === null) {
+    return tweets;
+  }
+
+  return JSON.parse(localTweets);
+}
+
+function saveTweet(tweet) {
+  const tweets = getTweets();
+
+  tweets.unshift(tweet);
+
+  window.localStorage.setItem('tweets', JSON.stringify(tweets))
+}
+
 function renderApp() {
+  const tweets = getTweets();
+  
   tweets.forEach(tweet => {
     const tweetElement = createTweet(tweet)
     list.append(tweetElement);

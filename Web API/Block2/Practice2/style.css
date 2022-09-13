@@ -44,3 +44,19 @@ img {
 .movie-active {
   opacity: 0;
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#more {
+  width: 200px;
+  margin: 0 auto;
+  border: none;
+  background: none;
+  font-size: 18px;
+  color: blue;
+  cursor: pointer;
+}

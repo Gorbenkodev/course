@@ -5,15 +5,15 @@ class Api {
     this.header = {'Content-Type': "application/json"}
   }
 
-  async fetchMoviesBySearchText(query) {
+  async fetchMoviesBySearchText(query, page) {
     try {
-      let url = `${this.searchUrl}?api_key=${this.apiKey}&query=${query}`;
+      let url = `${this.searchUrl}?api_key=${this.apiKey}&query=${query}&page=${page}`;
       const searchMovie = await fetch(url, {
         headers: this.headers
       });
       const data = await searchMovie.json();
-      // console.log(data.results)
-      // console.log(url)
+      console.log(data.total_pages)
+      console.log(url)
       return await data.results;
     } catch (error) {
       console.log("fetchMoviesBySearchText", error);

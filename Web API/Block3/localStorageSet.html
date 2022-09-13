@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage Set</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <input type="text">
+  <button type="button">Set text and refresh</button>
+
+  <p>Saved text in localStorage: <span id="saved-text"></span></p>
+
+  <script src="/script.js"></script>
+  <script>
+    const input = document.querySelector('input');
+    const button = document.querySelector('button');
+    const savedText = document.querySelector('#saved-text');
+
+    const text = window.localStorage.getItem('saved-text');
+
+    if (text !== null) {
+      savedText.textContent = text;
+    }
+
+    button.addEventListener('click', () => {
+      window.localStorage.setItem('saved-text', input.value);
+      window.location.reload();
+    })
+  </script>
+</body>
+</html>
