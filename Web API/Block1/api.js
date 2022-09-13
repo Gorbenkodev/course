@@ -17,6 +17,18 @@ class Api {
         console.log("fetchPopularMovies error", error);
      }
   }
+
+  async fetchBookmarks() {
+   try {
+      const bookmarks = await fetch(`${this.url}movie/${id}?api_key=81c8e393b8ff77b6d1f9247e798d7de9&language=en-US`, {
+      headers: this.headers
+   });
+   const data = await bookmarks.json();
+   return await data.results;
+   } catch (error) {
+      console.log("fetchPopularMovies error", error);
+      }
+   }
 }
 
 export default new Api();

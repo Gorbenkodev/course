@@ -110,11 +110,13 @@ function renderPopularMovies(filmList, arrId) {
    arrId = localStorage.getItem('myKey');
    arrId = JSON.parse(arrId)
    const main = document.getElementById('main')
-   // console.log(arrId)
    filmList.forEach((movie) => {
       const imagePath = "https://image.tmdb.org/t/p/w300";
       let { id, poster_path, original_title, isLiked } = movie
-      // console.log(id)
+      for (let i = 0; i < arrId.length; i++)
+      if(arrId[i] == id) {
+         isLiked = true
+      }
       const moviesElement = document.createElement('li');
       moviesElement.classList.add('movie');
       moviesElement.innerHTML = `
@@ -128,6 +130,9 @@ function renderPopularMovies(filmList, arrId) {
       </div>
       </div>
    `;
+   // console.log(id)   
+   // console.log(typeof arrId)
+
    
       main.appendChild(moviesElement)
    });
@@ -141,4 +146,43 @@ function renderPopularMovies(filmList, arrId) {
    })
 }
 
-renderPopularMovies(filmList);
+// const favList = await asyncProvider(Api.fetchBookmarks.bind(Api));
+
+
+
+const popular = document.querySelector('#popular');
+popular.addEventListener('click', () => {
+   renderPopularMovies(filmList);
+})
+
+// function renderBookmarks(arrId) { 
+// arrId = localStorage.getItem('myKey');
+// arrId = JSON.parse(arrId)
+// const main = document.getElementById('main')
+// favList.forEach((movie) => {
+//    const imagePath = "https://image.tmdb.org/t/p/w300";
+//    let { id, poster_path, original_title, isLiked } = movie
+//    for (let i = 0; i < arrId.length; i++)
+//    if(arrId[i] == id) {
+//       isLiked = true
+//    }
+//    const moviesElement = document.createElement('li');
+//    moviesElement.classList.add('movie');
+//    moviesElement.innerHTML = `
+//    <img src="${imagePath + poster_path}" alt="#"/>
+//    <div class="movie-item">
+//    <h3>${original_title}</h3>
+//    <div class="buttons">
+//       <a href="#" class="like-button ${isLiked ? "like-button-active" : ""} ">
+//       <i class="fa fa-heart ${id}"></i>
+//       </a>
+//    </div>
+//    </div>
+// `;
+// main.appendChild(moviesElement)
+// });
+
+// console.log(arrId)
+// }
+
+// renderBookmarks()
