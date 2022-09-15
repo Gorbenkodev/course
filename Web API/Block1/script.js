@@ -66,18 +66,10 @@
 // ----------------------------------------------------------------------- Pract 1
 
 
-// import Api from './api.js'
-// import { asyncProvider } from './loader.js'
-
-// asyncProvider()
-// const filmList = await Api.fetchPopularMovies();
-// console.log(filmList)
-
-// console.log(data.results)
-
 import Api from './api.js';
 import { asyncProvider } from './loader.js'
 const filmList = await asyncProvider(Api.fetchPopularMovies.bind(Api));
+
 
 function setLocalStorage(id) {
    
@@ -130,6 +122,7 @@ function renderPopularMovies(filmList, arrId) {
       </div>
       </div>
    `;
+   // console.log(movie)
    // console.log(id)   
    // console.log(typeof arrId)
 
@@ -146,43 +139,39 @@ function renderPopularMovies(filmList, arrId) {
    })
 }
 
-// const favList = await asyncProvider(Api.fetchBookmarks.bind(Api));
-
-
-
 const popular = document.querySelector('#popular');
 popular.addEventListener('click', () => {
    renderPopularMovies(filmList);
 })
 
-// function renderBookmarks(arrId) { 
-// arrId = localStorage.getItem('myKey');
-// arrId = JSON.parse(arrId)
-// const main = document.getElementById('main')
-// favList.forEach((movie) => {
-//    const imagePath = "https://image.tmdb.org/t/p/w300";
-//    let { id, poster_path, original_title, isLiked } = movie
-//    for (let i = 0; i < arrId.length; i++)
-//    if(arrId[i] == id) {
-//       isLiked = true
-//    }
-//    const moviesElement = document.createElement('li');
-//    moviesElement.classList.add('movie');
-//    moviesElement.innerHTML = `
-//    <img src="${imagePath + poster_path}" alt="#"/>
-//    <div class="movie-item">
-//    <h3>${original_title}</h3>
-//    <div class="buttons">
-//       <a href="#" class="like-button ${isLiked ? "like-button-active" : ""} ">
-//       <i class="fa fa-heart ${id}"></i>
-//       </a>
-//    </div>
-//    </div>
-// `;
-// main.appendChild(moviesElement)
-// });
 
-// console.log(arrId)
+// function renderBoockmarks(filmList, arrId) {
+//    arrId = localStorage.getItem('myKey');
+//    arrId = JSON.parse(arrId)
+//    const main = document.getElementById('main')
+//    function renderBook(evt) {
+//       const imagePath = "https://image.tmdb.org/t/p/w300";
+//       let { id, poster_path, original_title, isLiked } = evt
+//       const moviesElement = document.createElement('li');
+//       moviesElement.classList.add('movie');
+//       moviesElement.innerHTML = `
+//       <img src="${imagePath + poster_path}" alt="#"/>
+//       <div class="movie-item">
+//       <h3>${original_title}</h3>
+//       <div class="buttons">
+//          <a href="#" class="like-button ${isLiked ? "like-button-active" : ""} ">
+//          <i class="fa fa-heart ${id}"></i>
+//          </a>
+//       </div>
+//       </div>
+//    `;
+//    // console.log(id)   
+//    // console.log(typeof arrId)
+
+   
+//       main.appendChild(moviesElement)
+//    }
+//    renderBook(629176)
 // }
 
-// renderBookmarks()
+// renderBoockmarks()

@@ -1,22 +1,41 @@
-// const username = document.querySelector('#list > li:nth-child(1) > p.username');
+const root = document.getElementById('app');
 
-// console.log(username);
+export function Feed() {
+const layout = `<header>
+<form id="new-tweet-form" class="column">
+  <textarea name="text" id="input" placeholder="What's happening?"></textarea>
+  <div class="row justify">
+    <div class="characters-counter">
+      <span class="count">0</span>/280
+    </div>
+  <button type="submit" class="submit" disabled>Tweet</button>
+  </div>
+</form>
+</header>
+<main>
+<ul id="list">
+  <li>
+    <p class="username">@terry</p>
+    <p class="text">Hey, apiko academy!</p>
+    <div class="buttons">
+      <a href="#" class="like-button like-button-active">
+        <i class="fas fa-heart"></i>
+      </a>
+    </div>
+  </li>
+  <li>
+    <p class="username">@jack</p>
+    <p class="text">just setting up my twttr</p>
+    <div class="buttons">
+      <a href="#" class="like-button">
+        <i class="fas fa-heart"></i>
+      </a>
+    </div>
+  </li>
+</ul>
+</main>`
 
-// username.addEventListener('click', (evt) => {
-//   console.log('click', evt.target)
-
-//   evt.target.remove();
-
-//   evt.stopPropagation()
-// })
-
-// const tweet = document.querySelector('li');
-
-// tweet.addEventListener('click', () => {
-//   console.log('navigate ti tweet')
-// })
-// ----------------------------------------------------
-
+root.innerHTML = layout;
 const form = document.querySelector('#new-tweet-form');
 const list = document.querySelector('#list')
 const textarea = form.querySelector('textarea');
@@ -26,6 +45,8 @@ const countElement = counter.querySelector('.count')
 // const likeButtons = document.querySelectorAll('a.like-button')
 
 const USER_ID = 1;
+
+
 
 
 
@@ -92,9 +113,10 @@ function addTweet({ text, username, isLiked }) {
 
   saveTweet(tweetObj);
 }
-function createTweet({userId, text, username, isLiked}) {
+function createTweet({ tweetId, userId, text, username, isLiked}) {
 const tweet = document.createElement('li');
 
+tweet.dataset.tweetId = tweetId;
 tweet.dataset.userId = userId;
  
 tweet.innerHTML = `
@@ -119,12 +141,14 @@ return tweet;
 function getTweets() {
   const tweets = [
     {
+      tweetId: 1,
       userId: USER_ID,
       username: '@terry',
       text: 'Hey, apiko!',
       isLiked: true,
     },
     {
+      tweetId: 2,
       userId: 2,
       username: '@apko_hr',
       text: 'Yo!',
@@ -173,9 +197,15 @@ list.addEventListener('click', (evt) => {
   const usernameElement =  evt.target.closest('p.username')
 
   if(usernameElement !== null) {
-    console.log(tweet.dataset.userId)
-    console.log('Navigate to', usernameElement.textContent)
+    // console.log(tweet.dataset.userId)
+    // console.log('Navigate to', usernameElement.textContent)
+
+    window.history.pushState(null, null, `/users/${tweet.dataset.userId}`)
+    return;
   }
+
+  window.history.pushState(null, null, `/tweets/${tweet.dataset.tweetId}`)
 })
 
 renderApp()
+}
