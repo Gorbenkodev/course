@@ -1,0 +1,20 @@
+body {
+  background-color: firebrick;
+}
+.h2 {
+  color: red;
+  text-align: center;
+}
+.p {
+  text-decoration:underline;
+  font-size: 30px;
+}
+
+.ul > li {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  margin: 30px 0;
+  color: orange;
+  font-size: 20px;
+}
