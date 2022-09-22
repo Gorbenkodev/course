@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import { AppWrapper } from './appWrapper';
 import './style.css'
-import { App } from './app.js'
+
+
+const App = () => (
+	<div>
+		<AppWrapper title='React Turtles' />
+	</div>
+);
 
 ReactDOM.render(
 	<App />,

@@ -1,0 +1,28 @@
+body {
+  background-color: rgba(0, 0, 249, 0.655);
+}
+
+.title {
+  text-align: center;
+}
+
+.appItem {
+  text-align: center;
+}
+
+.appItem > h3 {
+  font-size: 30px;
+  border-top: 15px solid blue;
+  border-bottom: 15px solid yellow;
+  width: 200px;
+  margin: 20px auto;
+}
+
+.appItem > p {
+  font-size: 20px;
+}
+
+.image {
+  box-shadow: 10px 5px 5px black;
+  border-radius: 10px;
+}
