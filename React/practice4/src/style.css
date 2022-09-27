@@ -1,3 +1,46 @@
 .filmList {
   text-align: center;
 }
+
+.title {
+  font-size: 50px;
+  color: blueviolet;
+}
+
+.allPosters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.poster {
+  list-style-type: none;
+  text-align: center;
+  position: relative;
+}
+
+.poster > h3 {
+  font-size: 30px;
+  color: red;
+}
+
+.poster > p {
+  color: blue;
+  margin: 20px auto;
+  width: 300px;
+  
+}
+
+.toggleFilms {
+  font-size: 30px;
+  cursor: pointer;
+  color:darkgoldenrod;
+  font-weight: bold;
+}
+
+.rateFilm {
+  position: absolute;
+  font-size: 20px;
+  left: 0;
+  right: 0;
+  top: 50px;
+}

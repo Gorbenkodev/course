@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css'
-import FilmList from './filmList';
+import Api from './api';
+
+
 
 const App = () => (
-  <FilmList />
+  <Api />
 );
 
 ReactDOM.render(
