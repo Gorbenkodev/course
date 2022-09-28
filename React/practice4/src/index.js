@@ -1,13 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './style.css'
-import Api from './api';
+import App from './app';
 
-
-
-const App = () => (
-  <Api />
-);
 
 ReactDOM.render(
   <App />,
