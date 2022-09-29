@@ -6,20 +6,21 @@ class App extends React.Component {
     super(props);
     this.state = {
       results: [],
-
+      currentPages: 1,
+      totalPages: 5,
+      firstLoad: true
     }
   }
 
 
-  componentDidMount() {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=81c8e393b8ff77b6d1f9247e798d7de9&page=${this.state.page}`)
+
+  get() {
+    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=81c8e393b8ff77b6d1f9247e798d7de9&page=${this.state.currentPages}`)
     .then (res => res.json())
-    .then(console.log('Component DID MOUNT!'))
-    .then(console.log(this.results))
     .then(
-      (result) => {
+      (data) => {
         this.setState({
-          results: result.results
+          results: data.results
         });
       },
       (error) => ({
@@ -28,18 +29,40 @@ class App extends React.Component {
     )
   }
 
+  componentDidMount() {
+    this.get()
+  }
 
+ componentDidUpdate(prevProps, prevState){
+    if (this.state.currentPages !== prevState.currentPages){
+      this.get()
+    }
+  }
 
+  nextPage = () => {
+    this.setState({ 
+      ...this,
+      currentPages: this.state.currentPages + 1})
+  }
+
+  perviousPage = () => {
+    this.setState({ 
+      ...this,
+      currentPages: this.state.currentPages - 1})
+      
+  }
+  
+
+  
   render() {
     const {error, results} = this.state;
-    <h1>this.state.page</h1>
     if(error) {
       return <div>Error:{error.message}</div>;
     } else {
       return (
         <div className="filmList">
           <h3 className='title'>Favorite Movies</h3>
-          <Pagination/>
+          <Pagination currentPages={this.state.currentPages} totalPages={this.state.totalPages} nextPage={this.nextPage} perviousPage={this.perviousPage}/>
           <ul className="allPosters">
             {results.map(item => (
               <li className="poster" key={item.id}>

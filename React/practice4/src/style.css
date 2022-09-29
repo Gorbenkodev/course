@@ -1,10 +1,17 @@
+body {
+  background-image: url(https://wallpapersflix.com/wp-content/uploads/2021/12/Gradient-Wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .filmList {
   text-align: center;
 }
 
 .title {
   font-size: 50px;
-  color: blueviolet;
+  color: rgb(1, 18, 92);
+  text-shadow: 30px 10px 10px;
 }
 
 .allPosters {
@@ -19,8 +26,8 @@
 }
 
 .poster > h3 {
-  font-size: 30px;
-  color: red;
+  font-size: 20px;
+  color: rgb(197, 0, 0);
 }
 
 .poster > p {
@@ -29,9 +36,12 @@
   width: 300px;
   
 }
+.poster > img {
+  border-radius: 20px;
+}
 
 .toggleFilms {
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   color:darkgoldenrod;
   font-weight: bold;
@@ -39,8 +49,36 @@
 
 .rateFilm {
   position: absolute;
-  font-size: 20px;
+  font-size: 15px;
   left: 0;
   right: 0;
-  top: 50px;
+  top: 30px;
+}
+
+.pagination > h4{
+  font-size: 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.pagination > button {
+  background: none;
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 30px;
+  margin: 0 20px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: navy;
+  
+  
+}
+
+button:disabled {
+  color: rgb(56, 56, 56)
+}
+
+button:hover {
+ transition: 90px
 }
