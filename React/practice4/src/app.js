@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Pagination from "./pagination";
 import RateSwith from "./rateSwitch";
+import { ThemeButton } from "./theme/themeButton";
+import { ThemeContext, ThemeContextProvider, ThemeContextConsumer} from "./context";
+import PopUp from "./popup";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -8,10 +12,10 @@ class App extends React.Component {
       results: [],
       currentPages: 1,
       totalPages: 5,
-      firstLoad: true
+      darkMode: false,
+      showPopup: false,
     }
   }
-
 
 
   get() {
@@ -51,34 +55,62 @@ class App extends React.Component {
       currentPages: this.state.currentPages - 1})
       
   }
-  
+  darkModeBtn = () => {
+		this.setState(prevState => ({
+			darkMode: !prevState.darkMode,
+		}));
+	}
+  togglePopup = () => {
+    this.setState({
+      showPopup: !this.state.showPopup
+    });
+  }
 
-  
+ 
+
   render() {
-    const {error, results} = this.state;
+    const {error, results, darkMode, selectedDate} = this.state;
     if(error) {
       return <div>Error:{error.message}</div>;
     } else {
       return (
-        <div className="filmList">
-          <h3 className='title'>Favorite Movies</h3>
-          <Pagination currentPages={this.state.currentPages} totalPages={this.state.totalPages} nextPage={this.nextPage} perviousPage={this.perviousPage}/>
-          <ul className="allPosters">
-            {results.map(item => (
-              <li className="poster" key={item.id}>
-                <RateSwith popularity={item.popularity}/>
-                <h3>{item.title}</h3>
-                <img src={'https://image.tmdb.org/t/p/w300' + item.poster_path}></img>
-                <p>{item.overview}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ThemeContext.Provider value={darkMode}>
+            <div className={`filmList ${darkMode ? 'main-bg-dark' : 'main-bg-light'}`}>
+              <h3 className={`title ${darkMode ? 'txt-color-dark' : 'txt-color-light'}`}>Favorite Movies</h3>
+              <ThemeButton darkMode={darkMode}
+              darkModeBtn={this.darkModeBtn}/>
+              <Pagination 
+              currentPages={this.state.currentPages} 
+              totalPages={this.state.totalPages} 
+              nextPage={this.nextPage} 
+              perviousPage={this.perviousPage}
+              darkMode={this.state.darkMode}/>
+              <ul className="allPosters">
+                {results.map(item => (
+                  <li className="poster" key={item.id}>
+                    <RateSwith 
+                    popularity={item.popularity}
+                    darkMode={darkMode}/>
+                    <h3 className={`${darkMode ? 'poster-title-dark' : 'poster-title-light'}`}>{item.title}</h3>
+                    {/* {this.state.showPopup ? 
+                    <PopUp 
+                    text={item.release_date} 
+                    closePopup={this.togglePopup}/> 
+                    : null} */}
+                    <PopUp release_date={item.release_date} togglePopup={this.togglePopup}/>
+                    <img src={'https://image.tmdb.org/t/p/w300' + item.poster_path} onClick={this.togglePopup}></img>
+                    <p className={`${darkMode ? 'poster-txt-dark' : 'poster-txt-light'}`}>{item.overview}</p>
+                  </li>
+                ))}    
+              </ul>
+            </div>
+         </ThemeContext.Provider>
       )
     }
   }
   
 }
+
 
 
 export default App;

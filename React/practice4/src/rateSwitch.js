@@ -5,10 +5,10 @@ class RateSwith extends React.Component {
     this.state = {
       show: true
     };
-  this.toggleFilms = this.toggleFilms.bind(this)
+
   }
 
-  toggleFilms() {
+  toggleFilms = () => {
     this.setState({ show: !this.state.show })
   }
 
@@ -18,7 +18,7 @@ class RateSwith extends React.Component {
         <p className="toggleFilms" onClick={this.toggleFilms}>{this.state.show ? 'Show Rate' : 'Hide Rate'}</p>
         {
           !this.state.show && (
-            <p className="rateFilm">{this.props.popularity}</p>
+            <p className={`${this.props.darkMode ? 'rateFilm-dark' : 'rateFilm-light'}`}>{this.props.popularity}</p>
           )
         }
       </div>

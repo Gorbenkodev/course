@@ -9,10 +9,10 @@ class Pagination extends React.Component {
   render() {
     return (
       <div className="pagination">
-        <h4>Curent Page: {this.props.currentPages}</h4>
-        <button onClick={this.props.perviousPage}
+        <h4 className={`${this.props.darkMode ? 'txt-color-dark' : 'txt-color-light'}`}>Curent Page: {this.props.currentPages}</h4>
+          <button className={`${this.props.darkMode ? 'pagination-btn_dark' : 'pagination-btn_light'}`} onClick={this.props.perviousPage}
         disabled={this.props.currentPages === 1}>Previous Page</button>
-        <button onClick={this.props.nextPage}
+          <button className={`${this.props.darkMode ? 'pagination-btn_dark' : 'pagination-btn_light'}`} onClick={this.props.nextPage}
         disabled={this.props.currentPages === this.props.totalPages}>Next Page</button>
       </div>
     )

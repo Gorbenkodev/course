@@ -1,7 +1,7 @@
+
 body {
-  background-image: url(https://wallpapersflix.com/wp-content/uploads/2021/12/Gradient-Wallpaper.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 .filmList {
@@ -9,8 +9,8 @@ body {
 }
 
 .title {
+  margin: 0;
   font-size: 50px;
-  color: rgb(1, 18, 92);
   text-shadow: 30px 10px 10px;
 }
 
@@ -25,17 +25,31 @@ body {
   position: relative;
 }
 
-.poster > h3 {
+.poster-title-light {
   font-size: 20px;
   color: rgb(197, 0, 0);
 }
 
-.poster > p {
+.poster-title-dark {
+  font-size: 20px;
+  color: white;
+}
+
+.poster-txt-light {
   color: blue;
   margin: 20px auto;
   width: 300px;
-  
 }
+
+.poster-txt-dark {
+  color: white;
+  margin: 20px auto;
+  width: 300px;
+
+
+}
+
+
 .poster > img {
   border-radius: 20px;
 }
@@ -47,12 +61,21 @@ body {
   font-weight: bold;
 }
 
-.rateFilm {
+.rateFilm-light {
   position: absolute;
   font-size: 15px;
   left: 0;
   right: 0;
   top: 30px;
+  color: #000;
+}
+.rateFilm-dark {
+  position: absolute;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 30px;
+  color: rgb(255, 255, 255);
 }
 
 .pagination > h4{
@@ -60,7 +83,7 @@ body {
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.pagination > button {
+.pagination-btn_light {
   background: none;
   border: 1px solid black;
   border-radius: 50px;
@@ -71,8 +94,19 @@ body {
   font-size: 15px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: navy;
-  
-  
+}
+
+.pagination-btn_dark {
+  background: white;
+  border: 1px solid black;
+  border-radius: 50px;
+  height: 30px;
+  margin: 0 20px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: navy;
 }
 
 button:disabled {
@@ -81,4 +115,39 @@ button:disabled {
 
 button:hover {
  transition: 90px
+}
+.toggleButton {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+.main-bg-light {
+  background-color: bisque;
+
+}
+
+.main-bg-dark {
+  background: #000;
+}
+
+.txt-color-dark {
+  color: white
+}
+
+.txt-color-light {
+  color: rgb(1, 18, 92);
+}
+
+
+.popup_open {  
+  /* position: absolute;   */
+  width: 100px;
+  left: 25%;  
+  right: 25%;  
+  top: 25%;  
+  bottom: 25%;  
+  margin: auto;   
 }
