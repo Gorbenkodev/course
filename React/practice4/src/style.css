@@ -52,6 +52,7 @@ body {
 
 .poster > img {
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .toggleFilms {
@@ -122,6 +123,7 @@ button:hover {
   position: absolute;
   right: 0;
   top: 50px;
+  cursor: pointer;
 }
 
 .main-bg-light {
@@ -143,11 +145,38 @@ button:hover {
 
 
 .popup_open {  
-  /* position: absolute;   */
-  width: 100px;
+  position: absolute;  
   left: 25%;  
   right: 25%;  
-  top: 25%;  
-  bottom: 25%;  
-  margin: auto;   
+  margin: auto; 
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: rgba(47, 84, 117, 0.647);
+}
+.popup-txt-dark {
+  color: white;
+}
+
+.popup-txt-light {
+  color: rgb(147, 200, 24);
+}
+
+.popup-btn-dark {
+  color: white;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.popup-btn-light {
+  color: black;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  cursor: pointer;
 }

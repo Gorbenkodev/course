@@ -1,29 +1,20 @@
-import React from "react";
-class RateSwith extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      show: true
-    };
+import React, { useState} from "react";
 
-  }
+const RateSwitch = (props) => {
+  const [show, setShow] = useState(true)
 
-  toggleFilms = () => {
-    this.setState({ show: !this.state.show })
-  }
 
-  render() {
     return(
       <div>
-        <p className="toggleFilms" onClick={this.toggleFilms}>{this.state.show ? 'Show Rate' : 'Hide Rate'}</p>
+        <p className="toggleFilms" onClick={() => setShow(!show)}>{show ? 'Show Rate' : 'Hide Rate'}</p>
         {
-          !this.state.show && (
-            <p className={`${this.props.darkMode ? 'rateFilm-dark' : 'rateFilm-light'}`}>{this.props.popularity}</p>
+          !show && (
+            <p className={`${props.darkMode ? 'rateFilm-dark' : 'rateFilm-light'}`}>{props.popularity}</p>
           )
         }
       </div>
     )
-  }
 }
 
-export default RateSwith
+
+export default RateSwitch

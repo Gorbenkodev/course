@@ -12,8 +12,8 @@ class App extends React.Component {
       results: [],
       currentPages: 1,
       totalPages: 5,
-      darkMode: false,
-      showPopup: false,
+      // darkMode: false,
+      // showPopup: false,
     }
   }
 
@@ -92,19 +92,19 @@ class App extends React.Component {
                     popularity={item.popularity}
                     darkMode={darkMode}/>
                     <h3 className={`${darkMode ? 'poster-title-dark' : 'poster-title-light'}`}>{item.title}</h3>
-                    {/* {this.state.showPopup ? 
+                    {this.state.showPopup ? 
                     <PopUp 
                     text={item.release_date} 
+                    darkMode={darkMode}
                     closePopup={this.togglePopup}/> 
-                    : null} */}
-                    <PopUp release_date={item.release_date} togglePopup={this.togglePopup}/>
+                    : null}
                     <img src={'https://image.tmdb.org/t/p/w300' + item.poster_path} onClick={this.togglePopup}></img>
                     <p className={`${darkMode ? 'poster-txt-dark' : 'poster-txt-light'}`}>{item.overview}</p>
                   </li>
                 ))}    
               </ul>
             </div>
-         </ThemeContext.Provider>
+          </ThemeContext.Provider>
       )
     }
   }

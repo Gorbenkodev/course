@@ -1,9 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-
-import './style.css'
-import { App } from './app.js'
-
+import React, {useState} from 'react';
 
 export const Counter = () => {
   const [count, setCount] = useState(0);
@@ -11,7 +6,7 @@ export const Counter = () => {
 
   useEffect(() => {
     document.title = `Age is ${age} & count is ${count}`
-  }, [])
+  }, [count])
 
 
   return (
@@ -24,10 +19,3 @@ export const Counter = () => {
     </div>
   )
 }
-
-
-ReactDOM.render(
-	<Counter />,
-	document.getElementById('root')
-);
-
