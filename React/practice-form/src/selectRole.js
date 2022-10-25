@@ -7,7 +7,6 @@ export const SelectRole = () => {
   const addClass = () => {
     setActive(prev => !prev)
   }
-
   
 
   return (
@@ -23,7 +22,7 @@ export const SelectRole = () => {
         <h4>Profesional</h4>
         <p>I offer home improvement services or sell home products.</p>
       </div>
-      <button className="button-select">Next<i className="arrow"></i></button>
+      <button className="button-select" onClick={nextButton}>Next<i className="arrow"></i></button>
     </div>
   )
 }

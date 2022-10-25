@@ -10,7 +10,7 @@ export const App = () => {
 
   return (
     <SelectRole />,
-    <FirstPage />,
-    <SecondPage />
+    <FirstPage />
+    // <SecondPage />
   )
 }

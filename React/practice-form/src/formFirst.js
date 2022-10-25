@@ -30,30 +30,42 @@ export const FirstPage = () => {
               <input
               className="input-radio"
               type='radio'
+              id="male"
+              name="gender"
+              value='male'
               />
-              <p>Male</p>
+              <label for="male">Male</label>
             </div>
             <div className="first-form-gender-block">
               <input
               className="input-radio"
               type='radio'
+              id="female"
+              name="gender"
+              value='female'
               />
-              <p>Female</p>
+              <label for='female'>Female</label>
             </div>
             <div className="first-form-gender-block">
               <input
               className="input-radio"
               type='radio'
+              id="notSay"
+              name="gender"
+              value='notSay'
               />
-              <p>I prefer not to say</p>
+              <label for='notSay'>I prefer not to say</label>
 
             </div>
             <div className="first-form-gender-block">
               <input
               className="input-radio"
               type='radio'
+              id="other"
+              name="gender"
+              value='other'
               />
-              <p>Other</p>
+              <label for='other'>Other</label>
               <input
               className="input-other"
               type='text'/>
@@ -66,6 +78,8 @@ export const FirstPage = () => {
               <option>+2</option>
               <option>+3</option>
               <option>+4</option>
+              <option>+5</option>
+
             </select>
             <input
             className="input-phone"

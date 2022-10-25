@@ -19,29 +19,33 @@ export const SecondPage = () => {
             <input
             className="input-checkbox"
             type='checkbox'
+            id="eco"
             />
-            <p>Economy</p>
+            <label for='eco'>Economy</label>
           </div>
           <div className="second-form-categories-block">
             <input
             className="input-checkbox"
             type='checkbox'
+            id="bus"
             />
-            <p>Business</p>
+            <label for='bus'>Business</label>
           </div>
           <div className="second-form-categories-block">
             <input
             className="input-checkbox"
             type='checkbox'
+            id="trad"
             />
-            <p>Trading</p>
+            <label for='trad'>Trading</label>
           </div>
           <div className="second-form-categories-block">
             <input
             className="input-checkbox"
             type='checkbox'
+            id="comm"
             />
-            <p>Сommunications</p>
+            <label for='comm'>Communications</label>
           </div>
         </div>
         <input

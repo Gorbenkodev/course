@@ -181,13 +181,17 @@
 }
 
  .first-form-gender-block, .second-form-categories-block {
+  margin: 10px 0;
+  align-items: center;
   display: flex;
  }
 
  .input-radio {
+  margin: 0;
   width: 17px;
   height: 17px;
   align-self: center;
+  cursor: pointer;
  }
  
  .input-other {
@@ -197,9 +201,10 @@
   margin-left: 13px;
   border: 1px solid #E5E5E5;
   border-radius: 5px;
+  padding-left: 10px;
  }
 
- .first-form-gender-block > p, .second-form-categories-block > p  {
+ .first-form-gender-block > label, .second-form-categories-block > label  {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -208,6 +213,7 @@
   letter-spacing: 0.15px;
   margin-left: 16px;
   color: rgba(54, 54, 54, 0.87);
+  cursor: pointer;
  }
 
  .select-code {
@@ -323,7 +329,7 @@
   width: 18px;
   height: 18px;
   align-self: center;
-
+  cursor: pointer;
 }
 
 .second-form-categories-block > p {
