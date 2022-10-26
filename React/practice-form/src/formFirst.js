@@ -1,6 +1,35 @@
 import React, { useState } from "react"
+import { ContButton, PrevButton } from "./button"
+
+const useFormFields = (initialValues) => {
+  const [fields, setFormFields] = useState(initialValues);
+
+  const changeFieldValue = (e) => {
+    const {name, value} = e.target;
+    setFormFields(prev => ({
+      ...prev,
+      [name]: value,
+    }))
+  };
+
+  return { fields, changeFieldValue };
+}
 
 export const FirstPage = () => {
+  const {fields, changeFieldValue} = useFormFields({
+    firstName: '',
+    lastName: '',
+    gender: '',
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({
+      firstName: fields.firstName,
+      lastName: fields.lastName,
+      gender: fields.gender
+    })
+  }
   
 
   return (
@@ -11,17 +40,21 @@ export const FirstPage = () => {
         <span  className="slider-span"></span>
         <div className="first-slider-two"><p>2</p></div>
       </div>
-      <form className="first-form">
+      <form className="first-form" onSubmit={handleSubmit}>
           <input 
           className="input-name"
           type='text'
-          name='First name'
+          name='firstName'
+          value={fields.firstName}
+          onChange={changeFieldValue}
           placeholder='First Name'
           />
           <input
           className="input-name"
           type='text'
-          name='Last Name'
+          name='lastName'
+          value={fields.lastName}
+          onChange={changeFieldValue}
           placeholder='Last Name'
           />
           <div className="first-form-gender">
@@ -32,7 +65,8 @@ export const FirstPage = () => {
               type='radio'
               id="male"
               name="gender"
-              value='male'
+              value='Male'
+              onChange={changeFieldValue}
               />
               <label for="male">Male</label>
             </div>
@@ -42,7 +76,8 @@ export const FirstPage = () => {
               type='radio'
               id="female"
               name="gender"
-              value='female'
+              value='Female'
+              onChange={changeFieldValue}
               />
               <label for='female'>Female</label>
             </div>
@@ -52,7 +87,8 @@ export const FirstPage = () => {
               type='radio'
               id="notSay"
               name="gender"
-              value='notSay'
+              value='Not Say'
+              onChange={changeFieldValue}
               />
               <label for='notSay'>I prefer not to say</label>
 
@@ -63,11 +99,13 @@ export const FirstPage = () => {
               type='radio'
               id="other"
               name="gender"
-              value='other'
               />
               <label for='other'>Other</label>
               <input
               className="input-other"
+              name="gender"
+              value={fields.gender}
+              onChange={changeFieldValue}
               type='text'/>
             </div>
 
@@ -79,17 +117,17 @@ export const FirstPage = () => {
               <option>+3</option>
               <option>+4</option>
               <option>+5</option>
-
             </select>
-            <input
-            className="input-phone"
-            type='tel'
-            />
-          </div>
+              <input
+              className="input-phone"
+              type='tel'
+              />
+          </div> 
+          <button type="submit">Sub</button>
       </form>
       <div className="first-buttons">
-        <button className="prev-btn"><i className="arrowPrev"></i>Previous</button>
-        <button className="next-btn">Continue</button>
+        <PrevButton />
+        <ContButton />
       </div>
     </div>
   )

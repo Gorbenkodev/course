@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import {NextButton } from "./button"
 import { HomeownerIcon, ProfesionalIcon } from "./svg"
 
 export const SelectRole = () => {
@@ -22,7 +23,8 @@ export const SelectRole = () => {
         <h4>Profesional</h4>
         <p>I offer home improvement services or sell home products.</p>
       </div>
-      <button className="button-select" onClick={nextButton}>Next<i className="arrow"></i></button>
+      <button className="button-select">Next<i className="arrow"></i></button>
+      <NextButton />
     </div>
   )
 }

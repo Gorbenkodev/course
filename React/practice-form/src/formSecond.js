@@ -1,4 +1,5 @@
 import React from "react";
+import { PrevButton } from "./button";
 import { ReadyArrow } from "./svg";
 
 export const SecondPage = () => {
@@ -63,7 +64,7 @@ export const SecondPage = () => {
         </div>
       </form>
       <div className="first-buttons">
-        <button className="prev-btn"><i className="arrowPrev"></i>Previous</button>
+        <PrevButton />
         <input type='submit' className="next-btn" />
       </div>
     </div>
