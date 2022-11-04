@@ -1,0 +1,23 @@
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-inpt {
+  width: 150px;
+  height: 30px;
+}
+
+.mainPage {
+  text-align: center;
+}

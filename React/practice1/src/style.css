@@ -1,5 +1,5 @@
 body {
-  background-color: firebrick;
+  /* background-color: firebrick; */
 }
 .h2 {
   color: red;
@@ -19,6 +19,9 @@ body {
 
 }
 
+.dark-bg {
+  background-color: yellow;
+}
 /* ------------------------------component state style */
 /* .CarShop {
   text-align: center;
@@ -55,28 +58,4 @@ body {
 .grey {
   background: red;
   color: black;
-} */
-
-/* ------------------------------1000-7 style */
-
-/* body {
-  background: url(https://wallpaperaccess.com/full/551959.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-}
-.Counter {
-  display: flex;
-  flex-direction: column;
-}
-
-.clickKaneki {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto;
-}
-
-.clickKaneki > img {
-  width: 100%;
 } */
